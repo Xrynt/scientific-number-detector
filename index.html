@@ -17,6 +17,86 @@ function validateScientificNumber() {
 </script>
 </head>
 <body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin: 10px;
+            width: calc(100% - 40px);
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p#result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Scientific Number Checker</h2>
+        <input type="number" id="inputNumber" placeholder="Enter a number">
+        <button onclick="checkScientific()">Check</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkScientific() {
+            var input = parseFloat(document.getElementById("inputNumber").value);
+            var resultElement = document.getElementById("result");
+
+            if (isNaN(input)) {
+                resultElement.textContent = "Please enter a valid number!";
+            } else {
+                var scientific = /^(?:[-+])?(?:\d+\.\d*|\.\d+)(?:[eE][-+]?\d+)?$/;
+                if (scientific.test(input)) {
+                    resultElement.textContent = input + " is a scientific number.";
+                } else {
+                    resultElement.textContent = input + " is not a scientific number.";
+                }
+            }
+        }
+    </script>
+  
 <h2>Scientific Number Validator</h2>
 <form>
     <label for="scientificNumber">Enter a scientific number:</label><br>
