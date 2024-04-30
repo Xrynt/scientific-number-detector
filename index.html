@@ -70,33 +70,7 @@ function validateScientificNumber() {
             color: #333;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Scientific Number Checker</h2>
-        <input type="number" id="inputNumber" placeholder="Enter a number">
-        <button onclick="checkScientific()">Check</button>
-        <p id="result"></p>
-    </div>
 
-    <script>
-        function checkScientific() {
-            var input = parseFloat(document.getElementById("inputNumber").value);
-            var resultElement = document.getElementById("result");
-
-            if (isNaN(input)) {
-                resultElement.textContent = "Please enter a valid number!";
-            } else {
-                var scientific = /^(?:[-+])?(?:\d+\.\d*|\.\d+)(?:[eE][-+]?\d+)?$/;
-                if (scientific.test(input)) {
-                    resultElement.textContent = input + " is a scientific number.";
-                } else {
-                    resultElement.textContent = input + " is not a scientific number.";
-                }
-            }
-        }
-    </script>
-  
 <h2>Scientific Number Validator</h2>
 <form>
     <label for="scientificNumber">Enter a scientific number:</label><br>
